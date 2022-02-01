@@ -4,3 +4,9 @@ export function renderIngredient(i) {
     return li;
 
 }
+
+export function renderMeal(name, ingredientCount) {
+    const div = document.createElement('div');
+    div.textContent = `${name} - ${ingredientCount} Ingredients`;
+    return div;
+}

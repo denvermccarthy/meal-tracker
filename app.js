@@ -4,9 +4,10 @@ import { renderIngredient } from './utils.js';
 
 const form = document.getElementById('form');
 const listI = document.getElementById('list-i');
-// const nameInput = document.getElementById('name');
-// const nameButton = document.getElementById('name-button');
+const nameInput = document.getElementById('name');
+const nameButton = document.getElementById('name-button');
 
+console.log('i', nameInput, 'b', nameButton);
 // let state
 let ingredients = [];
 // let recipes = [];
@@ -16,8 +17,6 @@ function renderIngredients() {
         listI.append(renderIngredient(item.name)); 
     }
 }
-
-
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -32,6 +31,14 @@ form.addEventListener('submit', (e) => {
     form.reset();
     renderIngredients();
 });
+
+nameButton.addEventListener('click', () => {
+    const input = nameInput.value;
+    // renderMeal(input);
+
+});
+
+
 
 
 
