@@ -17,10 +17,10 @@ test('render a li element for an ingredient', (expect) => {
     expect.equal(actual.outerHTML, expected);
 });
 
-test('render a li element for an ingredient', (expect) => {
+test('render a meal with the name and number of ingredients', (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const expected = '<div>Pie - 6 Ingredients</div>';
+    const expected = '<p>Pie - 6 ingredients.</p>';
     
     //Act 
     // Call the function you're testing and set the result to a const
