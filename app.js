@@ -1,21 +1,31 @@
 // import functions and grab DOM elements
 import './utils.js';
-import { renderIngredient } from './utils.js';
+import { renderIngredient, renderMeal } from './utils.js';
 
 const form = document.getElementById('form');
 const listI = document.getElementById('list-i');
+const listM = document.getElementById('list-m');
 const nameInput = document.getElementById('name');
 const nameButton = document.getElementById('name-button');
 
-console.log('i', nameInput, 'b', nameButton);
+// console.log('i', nameInput, 'b', nameButton);
 // let state
 let ingredients = [];
-// let recipes = [];
+let meals = [];
 
 function renderIngredients() {
     for (let item of ingredients) {
-        listI.append(renderIngredient(item.name)); 
+        const li = (renderIngredient(item.name)); 
+        listI.append(li);
     }
+}
+
+function renderMeals() {
+    for (let meal of meals){
+        const p = renderMeal(meal.name, meal.count);
+        listM.append(p);
+    }
+
 }
 
 form.addEventListener('submit', (e) => {
@@ -34,8 +44,15 @@ form.addEventListener('submit', (e) => {
 
 nameButton.addEventListener('click', () => {
     const input = nameInput.value;
-    // renderMeal(input);
-
+    const iCount = ingredients.length;
+    const meal = {
+        name: input,
+        count: iCount
+    };
+    meals.push(meal);
+    // console.log('meal', meal, 'meals', meals);
+    nameInput.value = '';
+    renderMeals(meals);
 });
 
 
