@@ -2,48 +2,40 @@
 import './utils.js';
 import { renderIngredient } from './utils.js';
 
-const formI = document.getElementById('form-i');
-const formN = document.getElementById('form-n');
+const form = document.getElementById('form');
 const listI = document.getElementById('list-i');
+// const nameInput = document.getElementById('name');
+// const nameButton = document.getElementById('name-button');
 
 // let state
-let ingredientsList = [];
-let recipes = [];
-// set event listeners 
+let ingredients = [];
+// let recipes = [];
 
 function renderIngredients() {
-    for (let item of ingredientsList) {
-        listI.append(renderIngredient(item)); 
+    for (let item of ingredients) {
+        listI.append(renderIngredient(item.name)); 
     }
 }
 
 
 
-formI.addEventListener('submit', (e) => {
+form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const formData = new FormData(formI);
+    const formData = new FormData(form);
 
-    ingredientsList.push(formData.get('ingredient'));
+    const ingredientData = {
+        name: formData.get('ingredient'),
+    };
+    ingredients.push(ingredientData);
     // console.log('i', ingredientsList);
     listI.textContent = '';
-    formI.reset();
+    form.reset();
     renderIngredients();
 });
 
-formN.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(formN);
 
-    const recipe = {
-        name: formData.get('name'),
-        ingredients: ingredientsList
-    };
 
-    recipes.push(recipe);
-    formN.reset();
-    let ingredientsList = [];
-    console.log('r', recipes);
-});
+
   // get user input
   // use user input to update state 
   // update DOM to reflect the new state
