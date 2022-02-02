@@ -7,6 +7,7 @@ const listI = document.getElementById('list-i');
 const listM = document.getElementById('list-m');
 const nameInput = document.getElementById('name');
 const nameButton = document.getElementById('name-button');
+const remove = document.getElementById('remove');
 
 // console.log('i', nameInput, 'b', nameButton);
 // let state
@@ -41,6 +42,12 @@ form.addEventListener('submit', (e) => {
     listI.textContent = '';
     form.reset();
     // console.log(e);
+    renderIngredients();
+});
+
+remove.addEventListener('click', () => {
+    ingredients.pop();
+    listI.textContent = '';
     renderIngredients();
 });
 
