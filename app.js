@@ -15,14 +15,15 @@ let meals = [];
 
 function renderIngredients() {
     for (let item of ingredients) {
-        const li = (renderIngredient(item.name)); 
+        const li = renderIngredient(item); 
         listI.append(li);
     }
 }
 
+
 function renderMeals() {
     for (let meal of meals){
-        const p = renderMeal(meal.name, meal.count);
+        const p = renderMeal(meal);
         listM.append(p);
     }
 
@@ -34,11 +35,12 @@ form.addEventListener('submit', (e) => {
 
     const ingredientData = {
         name: formData.get('ingredient'),
+        qty: formData.get('quantity')
     };
     ingredients.push(ingredientData);
-    // console.log('i', ingredientsList);
     listI.textContent = '';
     form.reset();
+    // console.log(e);
     renderIngredients();
 });
 

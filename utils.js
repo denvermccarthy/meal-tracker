@@ -1,12 +1,12 @@
-export function renderIngredient(i) {
+export function renderIngredient(o) {
     const li = document.createElement('li');
-    li.textContent = i;
+    li.textContent = `${o.name} - Qty: ${o.qty}`;
     return li;
 
 }
 
-export function renderMeal(name, count) {
+export function renderMeal(o) {
     const p = document.createElement('p');
-    p.textContent = `${name} - ${count} ingredients.`;
+    p.textContent = `${o.name} - ${o.count} ingredients.`;
     return p;
 }
