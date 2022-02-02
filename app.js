@@ -6,7 +6,7 @@ const form = document.getElementById('form');
 const listI = document.getElementById('list-i');
 const listM = document.getElementById('list-m');
 const nameInput = document.getElementById('name');
-const nameButton = document.getElementById('name-button');
+const save = document.getElementById('save');
 const remove = document.getElementById('remove');
 
 // console.log('i', nameInput, 'b', nameButton);
@@ -23,6 +23,7 @@ function renderIngredients() {
 
 
 function renderMeals() {
+    listM.textContent = '';
     for (let meal of meals){
         const p = renderMeal(meal);
         listM.append(p);
@@ -41,7 +42,7 @@ form.addEventListener('submit', (e) => {
     ingredients.push(ingredientData);
     listI.textContent = '';
     form.reset();
-    // console.log(e);
+    // console.log('i', ingredients);
     renderIngredients();
 });
 
@@ -51,7 +52,8 @@ remove.addEventListener('click', () => {
     renderIngredients();
 });
 
-nameButton.addEventListener('click', () => {
+save.addEventListener('click', () => {
+    
     const input = nameInput.value;
     const iCount = ingredients.length;
     const meal = {
@@ -59,8 +61,14 @@ nameButton.addEventListener('click', () => {
         count: iCount
     };
     meals.push(meal);
-    // console.log('meal', meal, 'meals', meals);
+    
+    // console.log('meal', meal, 'meals', meals, 'i', ingredients);
+    
     nameInput.value = '';
+    ingredients = [];
+    listI.textContent = '';
+
+    
     renderMeals(meals);
 });
 
