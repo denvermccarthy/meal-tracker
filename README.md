@@ -4,7 +4,21 @@
 
 If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
 
-## Making a plan
+## Denver's Plan
+
+1. add html - name form, ingredient form, submit button, ul for li elements to be appended, remove last item button, save meal form, div for storing saved meals
+
+2. grab dom elements and declare state
+
+3. on submit of the form, grab the form data and push recipe into 'ingredients' array.
+
+4. create a function renderIngredient that will take in the ingredient data and turn that into an html element
+
+
+5. on click of the save recipe button grab form data name, loop through each ingredient and append all of that to the dom
+
+
+
 
 1) **Make a drawing of your app. Simple "wireframes"**
 1) **Once you have a drawing, name the HTML elements you'll need to realize your vision**
