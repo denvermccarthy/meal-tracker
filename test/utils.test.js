@@ -6,7 +6,7 @@ const test = QUnit.test;
 test('render a li element for an ingredient with quantity', (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const expected = '<li>apple - Qty: 6</li>';
+    const expected = '<li class="ing">apple - Qty: 6</li>';
     
     //Act 
     // Call the function you're testing and set the result to a const
@@ -23,7 +23,7 @@ test('render a li element for an ingredient with quantity', (expect) => {
 test('render a meal with the name and number of ingredients', (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const expected = '<p>Pie - 6 ingredients.</p>';
+    const expected = '<p class="meal">Pie - 6 ingredients.</p>';
     
     //Act 
     // Call the function you're testing and set the result to a const
